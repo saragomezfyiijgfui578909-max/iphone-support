@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Best Technology — Sell Your iPhone</title>
+<style>
+  :root{
+    --ink:#0E1220;
+    --panel:#161B2E;
+    --panel-2:#1E2540;
+    --gold:#F2B84B;
+    --mint:#3DDC97;
+    --text:#EDEFF7;
+    --muted:#9099B7;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{
+    background:var(--ink);
+    color:var(--text);
+    font-family:'Segoe UI','Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  body{ padding-bottom:72px; }
+  .eyebrow{
+    font-family:'Courier New', monospace;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    font-size:11px;
+    color:var(--gold);
+  }
+  header.hero{
+    padding:28px 20px 16px;
+    text-align:center;
+  }
+  .brand{
+    font-size:13px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:18px;
+  }
+  .brand b{color:var(--text); font-weight:700;}
+  h1{
+    font-family:'Georgia','Times New Roman',serif;
+    font-size:clamp(28px,7vw,40px);
+    line-height:1.15;
+    font-weight:700;
+    max-width:480px;
+    margin:10px auto 12px;
+  }
+  h1 span{color:var(--gold);}
+  .sub{
+    color:var(--muted);
+    font-size:15px;
+    max-width:400px;
+    margin:0 auto 22px;
+    line-height:1.5;
+  }
+
+  .price-tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(242,184,75,0.12);
+    border:1px solid rgba(242,184,75,0.4);
+    color:var(--gold);
+    font-size:13px;
+    font-weight:700;
+    padding:8px 16px;
+    border-radius:20px;
+    margin-bottom:6px;
+  }
+
+  /* Device strip */
+  .stage{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:12px;
+    padding:22px 20px 6px;
+  }
+  .phone{
+    width:96px;
+    height:196px;
+    border-radius:22px;
+    border:3px solid #2A3153;
+    background:linear-gradient(160deg,#2A3153,#151A2E);
+    position:relative;
+    box-shadow:0 16px 32px rgba(0,0,0,0.4);
+  }
+  .phone.center{
+    width:118px;
+    height:242px;
+    border-color:#39406b;
+    background:linear-gradient(160deg,#39406b,#181E38);
+  }
+  .phone .notch{
+    position:absolute;
+    top:0; left:50%;
+    transform:translateX(-50%);
+    width:44%;
+    height:14px;
+    background:#0E1220;
+    border-radius:0 0 10px 10px;
+  }
+  .phone .cond{
+    position:absolute;
+    bottom:10px; left:0; right:0;
+    text-align:center;
+    font-size:10px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  /* Trust row */
+  .trust-row{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+    margin:24px auto 4px;
+    padding:0 20px;
+    max-width:440px;
+  }
+  .badge{
+    font-size:12px;
+    padding:7px 13px;
+    border-radius:20px;
+    border:1px solid #2A3153;
+    color:var(--muted);
+  }
+  .badge.gold{border-color:var(--gold); color:var(--gold);}
+  .badge.mint{border-color:var(--mint); color:var(--mint);}
+
+  /* Steps */
+  .steps{
+    max-width:420px;
+    margin:34px auto 0;
+    padding:0 24px;
+  }
+  .step{
+    display:flex;
+    gap:14px;
+    padding:16px 0;
+    border-top:1px solid #21274A;
+    align-items:flex-start;
+  }
+  .step:last-child{border-bottom:1px solid #21274A;}
+  .step .num{
+    width:26px; height:26px;
+    border-radius:50%;
+    background:var(--panel-2);
+    border:1px solid #2A3153;
+    color:var(--gold);
+    font-size:12px;
+    font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+    margin-top:2px;
+  }
+  .step p{
+    font-size:14.5px;
+    line-height:1.55;
+    color:#D6DAEE;
+  }
+  .step strong{color:var(--text);}
+
+  /* Email CTA box */
+  .quote-box{
+    max-width:420px;
+    margin:34px auto 0;
+    padding:24px 22px 26px;
+    background:var(--panel);
+    border:1px solid #262E52;
+    border-radius:18px;
+    text-align:center;
+  }
+  .quote-box h2{
+    font-family:'Georgia','Times New Roman',serif;
+    font-size:21px;
+    margin:6px 0 10px;
+  }
+  .quote-box p{
+    color:#C7CCE5;
+    font-size:14px;
+    line-height:1.55;
+    margin-bottom:10px;
+  }
+  .checklist{
+    text-align:left;
+    list-style:none;
+    margin:14px 0 18px;
+    padding:14px 16px;
+    background:var(--panel-2);
+    border-radius:12px;
+  }
+  .checklist li{
+    font-size:13.5px;
+    color:#D6DAEE;
+    padding:5px 0;
+    padding-left:20px;
+    position:relative;
+  }
+  .checklist li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    color:var(--mint);
+    font-weight:700;
+  }
+  .email-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--gold);
+    color:#241804;
+    font-weight:700;
+    font-size:14.5px;
+    padding:15px 18px;
+    border-radius:12px;
+    text-decoration:none;
+    width:100%;
+    justify-content:center;
+    word-break:break-word;
+    box-shadow:0 10px 26px rgba(242,184,75,0.28);
+  }
+  .email-btn:active{transform:scale(0.98);}
+  .promise{
+    margin-top:14px;
+    font-size:12.5px;
+    color:var(--gold);
+    font-weight:600;
+  }
+
+  /* CTA */
+  .cta-wrap{
+    text-align:center;
+    padding:30px 20px 10px;
+    margin-top:10px;
+  }
+  .call-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background:var(--panel-2);
+    border:1px solid #2A3153;
+    color:var(--text);
+    font-weight:700;
+    font-size:16px;
+    padding:14px 24px;
+    border-radius:14px;
+    text-decoration:none;
+    width:100%;
+    max-width:340px;
+    justify-content:center;
+  }
+  .call-btn:active{transform:scale(0.98);}
+  .call-note{
+    display:block;
+    color:var(--muted);
+    font-size:12.5px;
+    margin-top:10px;
+  }
+
+  footer{
+    text-align:center;
+    padding:18px 20px 34px;
+    color:#5B6488;
+    font-size:11.5px;
+  }
+
+  /* Sticky dock */
+  .dock{
+    position:fixed;
+    left:0; right:0; bottom:0;
+    display:flex;
+    background:var(--panel-2);
+    border-top:1px solid #2A3153;
+    padding:9px 8px calc(9px + env(safe-area-inset-bottom));
+    z-index:10;
+  }
+  .dock-item{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:2px;
+    color:var(--muted);
+    text-decoration:none;
+    font-size:11px;
+    padding:4px 0;
+  }
+  .dock-item--static{ opacity:0.7; }
+  .dock-icon{ font-size:19px; }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="brand"><b>Best Technology</b> · We Buy Apple</div>
+    <div class="eyebrow">Sell Your iPhone Today</div>
+    <span class="price-tag">💰 Best Value, Guaranteed</span>
+    <h1>We buy <span>pre-owned iPhones</span> &amp; accessories — at prices no one else matches.</h1>
+    <p class="sub">Any model, any condition. Send us your device details and photos by email, and we'll come back with our best offer inside 24 hours.</p>
+  </header>
+
+  <div class="stage">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="cond">Good</div>
+    </div>
+    <div class="phone center">
+      <div class="notch"></div>
+      <div class="cond">Like New</div>
+    </div>
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="cond">Fair</div>
+    </div>
+  </div>
+
+  <div class="trust-row">
+    <span class="badge gold">All Models &amp; Storage</span>
+    <span class="badge mint">Chargers &amp; Cases Too</span>
+    <span class="badge gold">Reply in 24 Hrs</span>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <span class="num">1</span>
+      <p><strong>Email us your model.</strong> Tell us which iPhone you have, storage size, and its condition.</p>
+    </div>
+    <div class="step">
+      <span class="num">2</span>
+      <p><strong>Attach a few photos.</strong> Front, back, screen-on, and any scratches or damage — the clearer, the better.</p>
+    </div>
+    <div class="step">
+      <span class="num">3</span>
+      <p><strong>Get our best offer.</strong> We reply within 24 hours with a price. No one beats our deal.</p>
+    </div>
+  </div>
+
+  <div class="quote-box">
+    <div class="eyebrow" style="margin-bottom:8px;">Get A Quote</div>
+    <h2>Email us your iPhone details</h2>
+    <p>Include these and we'll move fast on your quote:</p>
+    <ul class="checklist">
+      <li>iPhone model &amp; storage</li>
+      <li>Condition (screen, body, battery health)</li>
+      <li>Photos — front, back &amp; screen-on</li>
+      <li>Accessories included, if any</li>
+    </ul>
+    <a class="email-btn" href="mailto:Besttechnologythemes@outlook.com?subject=Sell%20My%20iPhone&body=Hi%20Best%20Technology%2C%0A%0AI'd%20like%20a%20quote%20for%20my%20iPhone.%0A%0AModel%3A%20%0AStorage%3A%20%0ACondition%3A%20%0AAccessories%20included%3A%20%0A%0A(Photos%20attached%3A%20front%2C%20back%2C%20screen-on)">
+      ✉️ Email Besttechnologythemes@outlook.com
+    </a>
+    <p class="promise">We reply with our best price within 24 hours — no one beats our deal.</p>
+  </div>
+
+  <div class="cta-wrap">
+    <a class="call-btn" href="tel:+1 8888092043">
+      📞 Call +1 8888092043
+    </a>
+    <span class="call-note">Prefer to talk it through? Call us, or WhatsApp the same number.</span>
+  </div>
+
+  <footer>Best Technology — We Buy Pre-Owned iPhones &amp; Accessories</footer>
+
+  <nav class="dock">
+    <a href="tel:+18888092043" class="dock-item">
+      <span class="dock-icon">📞</span>
+      <span>Call</span>
+    </a>
+    <a href="mailto:Besttechnologythemes@outlook.com?subject=Sell%20My%20iPhone" class="dock-item">
+      <span class="dock-icon">✉️</span>
+      <span>Email</span>
+    </a>
+    <div class="dock-item dock-item--static">
+      <span class="dock-icon">💬</span>
+      <span>WhatsApp</span>
+    </div>
+  </nav>
+
+</body>
+</html>
